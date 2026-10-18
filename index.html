@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thais & Edilson</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300&family=Great+Vibes&display=swap" rel="stylesheet">
+<style>
+:root{--verde:#7a8c6b; --bege:#f8f5f0;}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bege); display:flex; justify-content:center; font-family:'Cormorant Garamond', serif;}
+.container{width:390px; max-width:100vw; background:var(--bege); position:relative; overflow:hidden; min-height:100vh;}
+
+/* CORREÇÃO - FOTO COM ZOOM NO ROSTO + ENVELOPE EMBAIXO PEQUENO */
+.envelope{
+  position:absolute; top:0; left:0; width:100%; height:100vh; z-index:100;
+  background-image: url('IMG_9865.jpeg');
+  background-size:cover; 
+  background-position:center 10%;
+  display:flex; justify-content:center; align-items:flex-end;
+  transition:transform 0.8s; cursor:pointer;
+  padding-bottom: 75px;
+}
+.envelope::after{content:''; position:absolute; top:0; left:0; width:100%; height:100%; background: rgba(122,140,107,0.18); z-index:0;}
+
+.envelope-verde{
+  position:relative; z-index:2;
+  width:52%; max-width:185px; height:92px;
+  background: linear-gradient(180deg, #8a9c7b 0%, #7a8c6b 50%, #6b7d5d 100%);
+  border-radius:11px;
+  display:flex; flex-direction:column; justify-content:center; align-items:center;
+  box-shadow:0 8px 22px rgba(0,0,0,0.35);
+  border:2px solid rgba(255,255,255,0.4);
+}
+.wax{width:44px; height:44px; border-radius:50%; background:radial-gradient(circle at 35% 30%, #f6e6a6 0%, #d4b45a 40%, #b89330 100%); display:flex; justify-content:center; align-items:center; font-family:'Great Vibes'; font-size:13px; color:#5a4010; border:2px solid #c9a84c;}
+.texto-toque{margin-top:5px; font-family:'Great Vibes'; font-size:10px; color:rgba(0,0,0,0.6); text-align:center; font-style:italic; line-height:1}
+.dots{margin-top:4px; display:flex; gap:3px;} .dots span{width:3px; height:3px; border-radius:50%; background:rgba(0,0,0,0.2)} .dots span.active{background:rgba(0,0,0,0.45); width:9px; border-radius:10px}
+.envelope.open{transform:translateY(-100%)}
+
+.carrossel-container{width:100%; overflow:hidden; background:var(--bege); padding:8px 0}
+.carrossel-track{display:flex; gap:8px; animation: scrollLeft 20s linear infinite; width:max-content}
+.carrossel-track img{width:250px; height:320px; object-fit:cover; flex-shrink:0; border-radius:3px; border:2px solid white}
+@keyframes scrollLeft{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.fundo-nome{background:#f3efea; padding:32px 20px; text-align:center;}
+.fundo-nome h2{letter-spacing:6px; font-size:21px; color:#4a3a2a; font-weight:300}
+.programacao, .emola-section, .rsvp-section{background:white; margin:12px; padding:18px; border-radius:8px; border:1px solid #e8ddd0}
+.prog-title{font-family:'Great Vibes'; font-size:26px; color:var(--verde); text-align:center; margin-bottom:10px}
+.countdown{display:flex; gap:7px; margin:15px 12px} .box{flex:1; border:1px solid var(--verde); background:white; padding:9px 0; text-align:center; border-radius:6px} .box b{color:var(--verde); font-size:18px}
+.emola-num{background:var(--bege); padding:12px; border-radius:6px; font-size:18px; font-weight:600; color:var(--verde); text-align:center; margin:10px 0; letter-spacing:2px; border:1px dashed var(--verde)}
+.barra-container{margin:10px 0; background:var(--bege); border-radius:10px; height:12px; overflow:hidden; border:1px solid #e0d5c5} .barra{height:100%; width:68%; background:var(--verde)}
+.input-group{margin:10px 0} .input-group label{font-size:10px; letter-spacing:1px; text-transform:uppercase; display:block; margin-bottom:4px}
+.input-group input, .input-group select{width:100%; padding:10px; border:1px solid #d1c2b0; background:#fdfbf7; border-radius:4px}
+.radio-group{display:flex; gap:6px} .radio-btn{flex:1; padding:9px; border:1px solid var(--verde); text-align:center; cursor:pointer; border-radius:4px; font-size:12px} .radio-btn.active{background:var(--verde); color:white}
+.btn{width:100%; padding:12px; background:var(--verde); color:white; border:none; border-radius:4px; cursor:pointer; margin-top:8px}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="envelope" id="envelope" onclick="this.classList.add('open')">
+    <div class="envelope-verde">
+      <div class="wax">T&E</div>
+      <div class="texto-toque">Toque no Brasão<br>para abrir</div>
+      <div class="dots"><span class="active"></span><span></span></div>
+    </div>
+  </div>
+
+  <div class="content">
+    <div style="text-align:center; padding:18px 0 10px; font-family:'Great Vibes'; font-size:36px; color:var(--verde)">Save the Date</div>
+    <div class="carrossel-container">
+      <div class="carrossel-track">
+        <img src="IMG_9865.jpeg"><img src="IMG_9866.jpeg"><img src="IMG_9864.jpeg">
+        <img src="IMG_9865.jpeg"><img src="IMG_9866.jpeg"><img src="IMG_9864.jpeg">
+      </div>
+    </div>
+    <div class="fundo-nome"><h2>THAIS & EDILSON</h2></div>
+    <div class="carrossel-container">
+      <div class="carrossel-track" style="animation-direction:reverse">
+        <img src="IMG_9864.jpeg"><img src="IMG_9865.jpeg"><img src="IMG_9866.jpeg">
+        <img src="IMG_9864.jpeg"><img src="IMG_9865.jpeg"><img src="IMG_9866.jpeg">
+      </div>
+    </div>
+    <div class="countdown">
+      <div class="box"><b id="d">0</b><br>DIAS</div>
+      <div class="box"><b id="h">0</b><br>HORAS</div>
+      <div class="box"><b id="m">0</b><br>MIN</div>
+      <div class="box"><b id="s">0</b><br>SEG</div>
+    </div>
+    <div class="emola-section">
+      <div class="prog-title">Presente via eMola</div>
+      <div class="emola-num">82 123 4567<br><span style="font-size:11px">THAIS & EDILSON</span></div>
+      <div style="display:flex; gap:6px">
+        <button class="btn" style="background:white; color:var(--verde); border:1px solid var(--verde)" onclick="navigator.clipboard.writeText('821234567'); alert('Copiado!')">COPIAR NÚMERO</button>
+        <button class="btn" onclick="window.open('https://wa.me/258821234567')">COMPROVATIVO</button>
+      </div>
+    </div>
+    <div class="rsvp-section">
+      <div class="prog-title">Confirmar Presença</div>
+      <p style="text-align:center; font-size:10px; letter-spacing:2px; color:var(--verde)">68% JÁ CONFIRMARAM</p>
+      <div class="barra-container"><div class="barra"></div></div>
+      <div class="input-group"><label>Seu Nome</label><input type="text" id="nome" placeholder="Ana Silva"></div>
+      <div class="input-group"><label>Vai estar presente?</label><div class="radio-group"><div class="radio-btn active" id="btnSim" onclick="setP('Sim')">SIM</div><div class="radio-btn" id="btnNao" onclick="setP('Não')">NÃO</div></div></div>
+      <div class="input-group"><label>Quantos convidados?</label><select id="qtd"><option value="1">1 - Só eu</option><option value="2">2 pessoas</option></select></div>
+      <button class="btn" onclick="confirmar()">CONFIRMAR PRESENÇA</button>
+    </div>
+  </div>
+</div>
+<script>
+let pres='Sim'; function setP(v){pres=v; document.getElementById('btnSim').classList.toggle('active',v==='Sim'); document.getElementById('btnNao').classList.toggle('active',v==='Não');}
+function confirmar(){const n=document.getElementById('nome').value; if(!n){alert('Digite seu nome');return;} const q=document.getElementById('qtd').value; const t=`Olá Thais & Edilson!%0ANome:${n}%0APresença:${pres}%0AConvidados:${q}`; window.open(`https://wa.me/258821234567?text=${t}`,'_blank');}
+const target=new Date("2027-04-20T00:00:00").getTime(); setInterval(()=>{const diff=target-Date.now(); document.getElementById('d').innerText=Math.floor(diff/86400000); document.getElementById('h').innerText=Math.floor((diff%86400000)/3600000); document.getElementById('m').innerText=Math.floor((diff%3600000)/60000); document.getElementById('s').innerText=Math.floor((diff%60000)/1000);},1000)
+</script>
+</body>
+</html>
